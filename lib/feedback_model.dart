@@ -1,12 +1,10 @@
 import 'package:flutter/cupertino.dart';
 
 class FeedbackModel {
-  dynamic type = "";
+  String? type = "";
   String? status = "";
   String? buyer = "";
   String? seller = " ";
-  // String? seller =  Element['seller'].toString();
-
   String? broker = "";
   String? variety = "";
   String? qnty = "";

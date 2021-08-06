@@ -32,22 +32,21 @@ class _homeState extends State<home> {
     jsonFeedback.forEach((element) {
       print('$element THIS IS NEXT <<<<<<<<');
       FeedbackModel feedbackModel = new FeedbackModel(
-          apdprice: element['${element['apdprice']}'],
-          type: element['${element['type']}'],
-          status: element['${element['status']}'],
-          buyer: element['${element['buyer']}'],
-          //seller: element['seller'],
-          seller: element['${element['seller']}'],
-          broker: element['${element['broker']}'],
-          variety: element['${element['variety']}'],
-          qnty: element['${element['qnty']}'],
-          qtyunit: element['${element['qntyunit']}'],
-          conID: element['${element['conID']}'],
-          orlprice: element['${element['orlprice']}'],
-          priceunit: element['${element['priceunit']}'],
-          createdat: element['${element['createdat']}'],
-          confirmedat: element['${element['confirmedat']}'],
-          dhara: element['${element['dhara']}']);
+          apdprice: element['apdprice'].toString(),
+          type: element['type'].toString(),
+          status: element['status'].toString(),
+          buyer: element['buyer'].toString(),
+          seller: element['seller'].toString(),
+          broker: element['broker'].toString(),
+          variety: element['variety'].toString(),
+          qnty: element['qnty'].toString(),
+          qtyunit: element['qntyunit'].toString(),
+          conID: element['conID'].toString(),
+          orlprice: element['orlprice'].toString(),
+          priceunit: element['priceunit'].toString(),
+          createdat: element['createdat'].toString(),
+          confirmedat: element['confirmedat'].toString(),
+          dhara: element['dhara'].toString());
 
       feedbacks.add(feedbackModel);
       // print('Length of FEEDBACK : ${feedbacks.length}');
@@ -70,6 +69,7 @@ class _homeState extends State<home> {
       ),
       body: Container(
         child: ListView.builder(
+          //todo
           itemCount: feedbacks.length,
           itemBuilder: (context, index) {
             return FeedbackTile(
@@ -96,44 +96,271 @@ class _homeState extends State<home> {
 }
 
 class FeedbackTile extends StatelessWidget {
-  final String type = "";
-  final String status = "";
-  final String buyer = "";
-  final String seller = "";
-  final String broker = "";
-  final String variety = "";
-  final String qnty = "";
-  final String qtyunit = "";
-  final String conID = "";
-  final String orlprice = "";
-  final String apdprice = "";
-  final String priceunit = "";
-  final String createdat = "";
-  final String confirmedat = "";
-  final String dhara = "";
+  String? type;
+  String? status;
+  String? buyer;
+  String? seller;
+  String? broker;
+  String? variety;
+  String? qnty;
+  String? qtyunit;
+  String? conID;
+  String? orlprice;
+  String? apdprice;
+  String? priceunit;
+  String? createdat;
+  String? confirmedat;
+  String? dhara;
 
   FeedbackTile(
-      {dynamic apdprice,
-      dynamic type,
-      dynamic status,
-      dynamic buyer,
-      dynamic seller,
-      dynamic broker,
-      dynamic variety,
-      dynamic qnty,
-      dynamic qtyunit,
-      dynamic conID,
-      dynamic orlprice,
-      dynamic priceunit,
-      dynamic createdat,
-      dynamic confirmedat,
-      dynamic dhara});
+      {this.apdprice,
+      this.type,
+      this.status,
+      this.buyer,
+      this.seller,
+      this.broker,
+      this.variety,
+      this.qnty,
+      this.qtyunit,
+      this.conID,
+      this.orlprice,
+      this.priceunit,
+      this.createdat,
+      this.confirmedat,
+      this.dhara});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Row(
-        children: [Text('$type'), Text(status)],
+      decoration: BoxDecoration(
+          border: Border.all(color: Colors.black, width: 3),
+          borderRadius: BorderRadius.circular(0),
+          color: Colors.white),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            Column(
+              // crossAxisAlignment: CrossAxisAlignment.start,
+              // mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      'TYPE: ',
+                      style: TextStyle(
+                          fontSize: 18.0, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      '$type',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Text(
+                      'BUYER: ',
+                      style: TextStyle(
+                          fontSize: 18.0, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      '$buyer',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Text(
+                      'SELLER: ',
+                      style: TextStyle(
+                          fontSize: 18.0, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      '$seller',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Text(
+                      'BROKER: ',
+                      style: TextStyle(
+                          fontSize: 18.0, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      '$broker',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Text(
+                      'VARIETY: ',
+                      style: TextStyle(
+                          fontSize: 18.0, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      '$variety',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Text(
+                      'QUANTITY: ',
+                      style: TextStyle(
+                          fontSize: 18.0, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      '$qnty',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Text(
+                      'QUANTITY UNIT: ',
+                      style: TextStyle(
+                          fontSize: 18.0, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      '$qtyunit',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Text(
+                      'CONFIRMATION ID: ',
+                      style: TextStyle(
+                          fontSize: 18.0, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      '$conID',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Text(
+                      'ORIGINAL PRICE: ',
+                      style: TextStyle(
+                          fontSize: 18.0, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      '$conID',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Text(
+                      'ACCEPTED PRICE: ',
+                      style: TextStyle(
+                          fontSize: 18.0, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      '$apdprice',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Text(
+                      'PRICE UNIT: ',
+                      style: TextStyle(
+                          fontSize: 18.0, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      '$priceunit',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Text(
+                      'CREATED AT: ',
+                      style: TextStyle(
+                          fontSize: 18.0, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      '$createdat',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Text(
+                      'CONFIRMED AT: ',
+                      style: TextStyle(
+                          fontSize: 18.0, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      '$confirmedat',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Text(
+                      'DHARA: ',
+                      style: TextStyle(
+                          fontSize: 18.0, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      '$dhara',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Text(
+                      'STATUS: ',
+                      style: TextStyle(
+                          fontSize: 18.0, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      '$status',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                  ],
+                ),
+                // Text(
+                //   'TYPE: $type',
+                //   style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                // ),
+                // Text('STATUS: $status'),
+                // Text('BUYER: $buyer'),
+                // Text('SELLER: $seller'),
+                // Text('BROKER: $broker'),
+                // Text('VARIETY: $variety'),
+                // Text('QUANTITY: $qnty'),
+                // Text('QUANTITY UNIT: $qtyunit'),
+                // Text('CONFIRMATION ID: $conID'),
+                // Text('ORIGINAL PRICE: $orlprice'),
+                // Text('ACCEPTED PRICE: $apdprice'),
+                // Text('PRICE UNIT: $priceunit'),
+                // Text('CREATED AT: $createdat'),
+                // Text('CONFIRMEED AT: $confirmedat'),
+                // Text('DHARA: $dhara'),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
