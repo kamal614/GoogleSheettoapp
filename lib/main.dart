@@ -11,6 +11,7 @@ class Sheetapp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Sheet App',
       theme: ThemeData(primarySwatch: Colors.amber),
       home: home(),

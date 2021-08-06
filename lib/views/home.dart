@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:sheetsapp/feedback_model.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'dart:convert' as convert;
 
 class home extends StatefulWidget {
@@ -25,12 +26,12 @@ class _homeState extends State<home> {
     // var jsonFeedback =
     //     convert.jsonDecode(raw.body.toString().replaceAll('\n', ' '));
 
-    print('This is a JSON Feedback $jsonFeedback');
+    //print('This is a JSON Feedback $jsonFeedback');
 
     // feedbacks = jsonFeedback.map((json) => FeedbackModel.fromJson(json));
 
     jsonFeedback.forEach((element) {
-      print('$element THIS IS NEXT <<<<<<<<');
+      //print('$element THIS IS NEXT <<<<<<<<');
       FeedbackModel feedbackModel = new FeedbackModel(
           apdprice: element['apdprice'].toString(),
           type: element['type'].toString(),
@@ -65,6 +66,7 @@ class _homeState extends State<home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         title: Text("Sheets App"),
       ),
       body: Container(
